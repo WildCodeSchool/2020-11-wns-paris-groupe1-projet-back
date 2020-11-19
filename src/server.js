@@ -1,23 +1,23 @@
-import { ApolloServer, gql } from 'apollo-server';
+import express from 'express';
+import { ApolloServer } from 'apollo-server-express';
 
-const typeDefs = gql`
-  type Book {
-    title: String
-  }
+import mongoConnection from './config/db';
 
-  type Query {
-    books: [Book]
-  }
-`;
+import resolvers from './resolvers';
+import typeDefs from './typeDefs';
+import File from './models/File';
 
-const books = [{ title: 'test' }];
+mongoConnection();
+const app = express();
 
-const resolvers = {
-  Query: {
-    books: () => books,
-  },
-};
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: () => ({ models: { File } }),
+});
 
-const server = new ApolloServer({ typeDefs, resolvers });
+server.applyMiddleware({ app, path: '/graphql' });
 
-server.listen().then(({ url }) => console.log(`Server is listening at ${url}`));
+app.listen(4000, () => {
+  console.log('Server is running');
+});
