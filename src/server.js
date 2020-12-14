@@ -3,12 +3,14 @@ import { ApolloServer } from 'apollo-server-express';
 
 import mongoConnection from './config/db';
 
-import resolvers from './resolvers';
-import typeDefs from './typeDefs';
+import resolvers from './resolvers/index';
+import typeDefs from './typedefs/index';
 import File from './models/File';
 
 mongoConnection();
 const app = express();
+
+const PORT = process.env.PORT || 4000;
 
 const server = new ApolloServer({
   typeDefs,
@@ -18,6 +20,6 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app, path: '/graphql' });
 
-app.listen(4000, () => {
-  console.log('Server is running');
+app.listen(PORT, () => {
+  console.log(`Server is running at port ${PORT}`);
 });
