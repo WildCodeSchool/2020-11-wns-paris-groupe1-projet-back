@@ -1,7 +1,16 @@
 type User {
-  firstname: String
-  lastname: String
-  age: Int
-  email: String
-  password: String
+  id: ID!
+  firstname: String!
+  lastname: String!
+  age: Int!
+  email: String!
+  password: String!
+}
+
+input SignUpInput {
+  firstname: String!
+  lastname: String!
+  age: Int!
+  email: String!
+  password: String!
 }
