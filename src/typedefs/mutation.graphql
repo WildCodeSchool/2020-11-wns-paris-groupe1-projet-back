@@ -1,3 +1,4 @@
 type Mutation {
+  signUp(input: SignUpInput!): User!
   addFile(file: InputFile): File
 }

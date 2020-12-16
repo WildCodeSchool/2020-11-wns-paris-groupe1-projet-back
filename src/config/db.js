@@ -1,18 +1,15 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-const mongoConnection = async () => {
+export default async () => {
   try {
-    await mongoose.connect(
-      'mongodb+srv://odyssey2:odyssey2.0@cluster0.tezgx.mongodb.net/test2?retryWrites=true&w=majority',
-      {
-        useUnifiedTopology: true,
-        useNewUrlParser: true,
-      }
-    );
-    console.log('You are connected');
+    await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    });
+    console.log('DB Connected');
   } catch (e) {
     console.error(e);
   }
 };
-
-export default mongoConnection;
