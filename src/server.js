@@ -3,6 +3,7 @@ import { ApolloServer } from 'apollo-server-express';
 import 'dotenv/config';
 
 import mongoConnection from './config/db';
+import getUser from './context/index';
 
 // Retrieve resolvers - typeDefs - models
 import resolvers from './resolvers/index';
@@ -21,7 +22,10 @@ const PORT = process.env.PORT || 4000;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: () => ({ models }),
+  context: (req) => {
+    const { userId, userRole } = getUser(req);
+    return { models, userId, userRole };
+  },
 });
 
 server.applyMiddleware({ app, path: '/graphql' });
