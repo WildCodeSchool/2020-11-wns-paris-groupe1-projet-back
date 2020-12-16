@@ -22,9 +22,13 @@ const PORT = process.env.PORT || 4000;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: (req) => {
-    const { userId, userRole } = getUser(req);
-    return { models, userId, userRole };
+  context: ({ req }) => {
+    const token = req.headers.authorization;
+    if (token) {
+      const { userId, userRole } = getUser(token);
+      return { models, userId, userRole };
+    }
+    return { models };
   },
 });
 

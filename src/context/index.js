@@ -1,7 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-export default (req) => {
-  const token = req.headers.authorization || '';
+export default (token) => {
   const decodedToken = jwt.verify(token, 'SECRET');
   const { userId, userRole } = decodedToken;
 
