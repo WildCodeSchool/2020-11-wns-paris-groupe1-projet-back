@@ -7,7 +7,6 @@ export default async (_, { file: { title, description, category, url } }, { mode
     url,
     datetime: datetime.toISOString(datetime.setHours(datetime.getHours() + 1)),
   });
-  console.log(newFile);
   await newFile.save();
   return newFile;
 };

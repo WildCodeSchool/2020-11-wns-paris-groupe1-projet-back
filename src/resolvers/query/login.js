@@ -13,7 +13,9 @@ export default async (_, { email, password }, { models: { User } }) => {
       return { message: 'Mot de passe incorrect', __typename: 'Message' };
     }
     // eslint-disable-next-line no-underscore-dangle
-    const token = jwt.sign({ userId: user._id, userRole: user.role }, 'SECRET', { expiresIn: '24h' });
+    const token = jwt.sign({ userId: user._id, userRole: user.role }, process.env.JWT_SECRET, {
+      expiresIn: 1000 * 60 * 24 * 365,
+    });
     // eslint-disable-next-line no-underscore-dangle
     return { ...user._doc, id: user._id, token, __typename: 'User' };
   } catch (e) {
