@@ -5,7 +5,7 @@ import mongoConnection from './config/db';
 
 import resolvers from './resolvers/index';
 import typeDefs from './typedefs/index';
-import File from './models/File';
+import models from './models/index';
 
 mongoConnection();
 const app = express();
@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 4000;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: () => ({ models: { File } }),
+  context: () => ({ models }),
 });
 
 server.applyMiddleware({ app, path: '/graphql' });
