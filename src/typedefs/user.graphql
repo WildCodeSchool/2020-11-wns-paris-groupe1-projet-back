@@ -2,7 +2,7 @@ type User {
   id: ID!
   firstname: String!
   lastname: String!
-  age: Int!
+  birthday: String!
   email: String!
   password: String!
   token: String
@@ -11,7 +11,7 @@ type User {
 input SignUpInput {
   firstname: String!
   lastname: String!
-  age: Int!
+  birthday: String!
   email: String!
   password: String!
 }
