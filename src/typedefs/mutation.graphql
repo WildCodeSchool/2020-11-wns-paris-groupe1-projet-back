@@ -1,4 +1,4 @@
 type Mutation {
-  signUp(input: SignUpInput!): User!
+  signUp(input: SignUpInput!): UserResponse!
   addFile(file: InputFile): File
 }
