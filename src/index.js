@@ -1,8 +1,9 @@
 import express from 'express';
-import 'dotenv/config';
-
-import mongoConnection from './config/db';
+import dotenv from 'dotenv';
+import mongoConnection from './config/mongoConnection';
 import { getApolloServer } from './server';
+
+dotenv.config();
 
 const main = async () => {
   try {

@@ -1,17 +1,16 @@
 # pull official base image
-FROM node:13.12.0-alpine
+FROM node:alpine
 
-# set working directory
+# Create app directory
+RUN mkdir /app
 WORKDIR /app
 
-# install app dependencies
+# Install app dependencies
 COPY package.json ./
-COPY package-lock.json ./
-COPY tsconfig.json ./
-RUN npm run watch
+RUN npm install
 
-# add app
+# Bundle app source
 COPY . ./
 
-# start app
-CMD node index.js
+# EXPOSE 8080
+CMD node --experimental-modules src/index.js
