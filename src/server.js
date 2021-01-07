@@ -1,11 +1,11 @@
 import { ApolloServer } from 'apollo-server-express';
 
-import getUser from './context/index';
+import getUser from './context/index.js';
 
 // Retrieve resolvers - typeDefs - models
-import resolvers from './resolvers/index';
-import typeDefs from './typedefs/index';
-import models from './models/index';
+import resolvers from './resolvers/index.js';
+import typeDefs from './typedefs/index.js';
+import models from './models/index.js';
 
 // eslint-disable-next-line consistent-return
 export const getApolloServer = async () => {
