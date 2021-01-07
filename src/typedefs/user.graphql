@@ -1,0 +1,19 @@
+type User {
+  id: ID!
+  firstname: String!
+  lastname: String!
+  birthday: String!
+  email: String!
+  password: String!
+  token: String
+}
+
+input SignUpInput {
+  firstname: String!
+  lastname: String!
+  birthday: String!
+  email: String!
+  password: String!
+}
+
+union UserResponse = User | Message
