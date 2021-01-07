@@ -14,4 +14,4 @@ RUN npm run watch
 COPY . ./
 
 # start app
-CMD ["npm", "start"]
+CMD node index.js
