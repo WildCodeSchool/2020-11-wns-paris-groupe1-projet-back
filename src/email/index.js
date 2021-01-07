@@ -8,8 +8,8 @@ const templates = {
 export default function sendEmail(data) {
   const msg = {
     //extract the email details
-    to: 'lemercier60@gmail.com',
-    from: data.email,
+    to: data.email,
+    from: 'lemercier60@gmail.com',
     subject: data.subject,
     templateId: templates[data.templateName],
     //extract the custom fields
