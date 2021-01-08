@@ -9,7 +9,7 @@ const main = async () => {
   try {
     const PORT = process.env.PORT || 4000;
 
-    // Connect to MongoDB test2
+    // Connect to MongoDB
     await mongoConnection(process.env.MONGODB_URI);
 
     // Express server
