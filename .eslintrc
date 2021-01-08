@@ -7,14 +7,14 @@
     "import/no-extraneous-dependencies": ["error", { "devDependencies": ["features/**", "**/*.test.js", "test/**"] }],
     "linebreak-style": 0,
     "import/prefer-default-export": 0,
-    "func-names": 0
-    // "import/extensions": ["error", "ignorePackages", {
-      // "ts": "always",
-      // "tsx": "always",
-      // "js": "always",
-      // "jsx": "always",
-      // "mjs": "always"
-    // }]
+    "func-names": 0,
+    "import/extensions": ["error", "ignorePackages", {
+      "ts": "always",
+      "tsx": "always",
+      "js": "always",
+      "jsx": "always",
+      "mjs": "always"
+    }]
   },
   "env": {
     "jest": true
