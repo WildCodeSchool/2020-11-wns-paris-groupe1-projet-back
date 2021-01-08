@@ -1,8 +1,8 @@
-import files from './query/file';
-import addFile from './mutation/add-file';
-import signUp from './mutation/sign-up';
-import login from './query/login';
-import userResponse from './user-response/user-response';
+import files from './query/file.js';
+import addFile from './mutation/add-file.js';
+import signUp from './mutation/sign-up.js';
+import login from './query/login.js';
+import userResponse from './user-response/user-response.js';
 
 export default {
   UserResponse: userResponse,

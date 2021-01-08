@@ -1,5 +1,5 @@
-import File from './File';
-import User from './User';
+import File from './File.js';
+import User from './User.js';
 
 export default {
   File,

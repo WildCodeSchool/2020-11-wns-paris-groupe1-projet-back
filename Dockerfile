@@ -13,4 +13,4 @@ RUN npm install
 COPY . ./
 
 # EXPOSE 8080
-CMD node --experimental-modules src/index.js
+CMD npm run watch

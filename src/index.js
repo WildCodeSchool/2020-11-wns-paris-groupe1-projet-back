@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import mongoConnection from './config/mongoConnection';
-import { getApolloServer } from './server';
+import mongoConnection from './config/mongoConnection.js';
+import { getApolloServer } from './server.js';
 
 dotenv.config();
 
