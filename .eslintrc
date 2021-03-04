@@ -3,6 +3,7 @@
   "parser": "babel-eslint",
   "rules": {
     "no-console": "off",
+    "no-underscore-dangle": 0,
     "no-unneeded-ternary": 0,
     "import/no-extraneous-dependencies": ["error", { "devDependencies": ["features/**", "**/*.test.js", "test/**"] }],
     "linebreak-style": 0,
