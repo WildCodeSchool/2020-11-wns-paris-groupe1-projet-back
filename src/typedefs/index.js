@@ -1,5 +1,5 @@
 import path from 'path';
 import { mergeTypeDefs, loadFilesSync } from 'graphql-tools';
 
-const typesMerged = mergeTypeDefs(loadFilesSync(`${path.resolve()}/src/typedefs`), { recursive: true });
+const typesMerged = mergeTypeDefs(loadFilesSync(path.join(__dirname, '../typedefs'), { extensions: ['graphql'] }));
 export default typesMerged;
