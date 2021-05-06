@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import { ApolloServer } from 'apollo-server-express';
 
 import getUser from './context/index.js';
@@ -14,7 +15,10 @@ export const getApolloServer = async () => {
       typeDefs,
       resolvers,
       context: ({ req }) => {
-        const token = req?.headers?.authorization;
+        let token = '';
+        if (req && req.headers && req.headers.authorization) {
+          token = req.headers.authorization;
+        }
         if (token) {
           const { userId, userRole } = getUser(token);
           return { models, userId, userRole };
